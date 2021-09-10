@@ -1,0 +1,34 @@
+.block {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 408px;
+}
+
+.block_title {
+  font-family: var(--font-logo);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  color: #1b1b1e;
+}
+
+.block_body {
+  margin-top: 25px;
+  font-family: var(--font-main);
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: #141414;
+}
+
+.block_btns {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 27px;
+}
