@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../../shared/Button";
 import styles from "./bigBlock.module.css";
-
+import Link from "next/link";
 interface IProps {
   backgroundColor?: string;
   title: string;
@@ -30,7 +30,9 @@ export default function BigBlock({
       )}
       <div className={styles.block_btns}>
         {btnArr.map((el, i) => (
-          <Button outlined text={el.btnText} key={i} />
+          <Link key={i} passHref href={el.link}>
+            <Button outlined text={el.btnText} />
+          </Link>
         ))}
       </div>
     </div>

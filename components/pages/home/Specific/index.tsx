@@ -4,6 +4,7 @@ import Button from "../../../shared/Button";
 import LinkBlock from "../../../shared/LinkBlock";
 import Wrapper from "../../../shared/Wrapper";
 import styles from "./specific.module.css";
+import Link from "next/link";
 
 export default function Specific() {
   return (
@@ -19,7 +20,9 @@ export default function Specific() {
               <LinkBlock key={idx} link="/" />
             ))}
           </div>
-          <Button text="Find your university" outlined />
+          <Link href="/search/specified/?type=universities" passHref shallow>
+            <Button text="Find your university" outlined />
+          </Link>
         </div>
 
         <div className={styles.specific_list}>
@@ -29,7 +32,9 @@ export default function Specific() {
               <LinkBlock key={idx} link="/" />
             ))}
           </div>
-          <Button text="Find your school" outlined />
+          <Link href="/search/specified/?type=schools" passHref shallow>
+            <Button text="Find your school" outlined />
+          </Link>
         </div>
       </div>
       <div className={styles.specific}>
@@ -42,7 +47,9 @@ export default function Specific() {
               <LinkBlock key={idx} link="/" />
             ))}
           </div>
-          <Button text="View all subjects" outlined />
+          <Link passHref href="/subjects">
+            <Button text="View all subjects" outlined />
+          </Link>
         </div>
       </div>
     </Wrapper>

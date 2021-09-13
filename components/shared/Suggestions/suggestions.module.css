@@ -1,0 +1,15 @@
+.suggestions {
+  position: absolute;
+  width: 1077px;
+  height: 371px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  background: #ffffff;
+  border: var(--border-main);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 0px 4px rgba(0, 0, 0, 0.08);
+  border-radius: 0px 0px 16px 16px;
+  z-index: 2;
+  padding: 24px;
+}

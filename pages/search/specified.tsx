@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import EmptyLayout from "../../components/layouts/EmptyLayout";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/layouts/MainLayout";
-import Header from "../../components/shared/Header/Index";
 import LinkBlock from "../../components/shared/LinkBlock";
 import SearchInputBig from "../../components/shared/SearchInputBig";
 import Tabs from "../../components/shared/Tabs";
@@ -12,17 +10,23 @@ import { createArray } from "../../utils/helpers/createArray";
 
 export default function Specified() {
   const router = useRouter();
+  const [searchText, setSearchText] = useState("");
 
   const specifiedTypes = [
     { text: "schools", value: "schools" },
     { text: "universities", value: "universities" },
   ];
 
-  // useEffect(() => {
-  // }, [router.query.type])
+  useEffect(() => {
+    setSearchText("");
+  }, [router.query.type]);
 
   return (
-    <MainLayout title={`Search for university ${router.query.type}`}>
+    <MainLayout
+      withDiscoverBtn
+      withSearch
+      title={`Search for university ${router.query.type}`}
+    >
       <div className={styles.search}>
         <Wrapper>
           <div className={styles.search_container}>
@@ -41,8 +45,8 @@ export default function Specified() {
             <SearchInputBig
               placeholder={`Search for ${router.query.type}`}
               containerClassName={styles.search_input}
-              value={""}
-              onChange={() => {}}
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
             />
 
             <div className={styles.search_popular}>

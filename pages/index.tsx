@@ -16,14 +16,14 @@ const Home: NextPage = () => {
         title="Create own flashcards"
         titleColor="#1B1B1E"
         btnArr={[
-          { btnText: "Create flashcard", link: "" },
-          { btnText: "More", link: "" },
+          { btnText: "Create flashcard", link: "/" },
+          { btnText: "More", link: "/" },
         ]}
       />
       <BigBlock
         title="Learn with study packs"
         titleColor="#1B1B1E"
-        btnArr={[{ btnText: "Create study pack", link: "" }]}
+        btnArr={[{ btnText: "Create study pack", link: "/" }]}
       />
       <BigBlock
         backgroundColor="#000000"
@@ -31,8 +31,8 @@ const Home: NextPage = () => {
         titleColor="#FFFFFF"
         witBody={false}
         btnArr={[
-          { btnText: "Discover materials", link: "" },
-          { btnText: "Get studying", link: "" },
+          { btnText: "Discover materials", link: "/search" },
+          { btnText: "Get studying", link: "/" },
         ]}
       />
     </EmptyLayout>

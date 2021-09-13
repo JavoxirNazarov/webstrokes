@@ -2,6 +2,7 @@ import clsx from "clsx";
 import React from "react";
 import Button from "../../../shared/Button";
 import styles from "./companion.module.css";
+import Link from "next/link";
 
 interface IProps {
   title: string;
@@ -34,7 +35,9 @@ export default function CompanionBlock({
 
         <div className={styles.companion_block_card_btns}>
           {btnArr.map((el, i) => (
-            <Button outlined text={el.btnText} key={i} />
+            <Link href={el.link} passHref key={i}>
+              <Button outlined text={el.btnText} />
+            </Link>
           ))}
         </div>
       </div>

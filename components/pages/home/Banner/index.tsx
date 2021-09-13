@@ -6,8 +6,10 @@ import Wrapper from "../../../shared/Wrapper";
 import styles from "./banner.module.css";
 import Link from "next/link";
 import Logo from "../../../shared/Logo";
+import { useRouter } from "next/router";
 
 export default function Banner() {
+  const router = useRouter();
   const [search, setSearch] = useState("");
 
   return (
@@ -20,12 +22,8 @@ export default function Banner() {
             <Link href="/search" passHref>
               <p className={styles.banner_header_link}>Discover</p>
             </Link>
-            <Link href="/search" passHref>
-              <p className={styles.banner_header_link}>Create</p>
-            </Link>
-            <Link href="/search" passHref>
-              <p className={styles.banner_header_link}>Learn</p>
-            </Link>
+            <p className={styles.banner_header_link}>Create</p>
+            <p className={styles.banner_header_link}>Learn</p>
           </div>
 
           <div className={clsx("row", styles.banner_header_btns)}>
@@ -50,6 +48,11 @@ export default function Banner() {
           <SearchInputBig
             onChange={(e) => setSearch(e.target.value)}
             value={search}
+            onBtnCkick={() =>
+              router.push(`/search/result?text=${search}`, undefined, {
+                shallow: true,
+              })
+            }
           />
         </div>
       </Wrapper>

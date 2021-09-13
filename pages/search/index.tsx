@@ -1,16 +1,18 @@
-import React from "react";
-import EmptyLayout from "../../components/layouts/EmptyLayout";
-import Header from "../../components/shared/Header/Index";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import MainLayout from "../../components/layouts/MainLayout";
+import Button from "../../components/shared/Button";
 import LinkBlock from "../../components/shared/LinkBlock";
 import SearchInputBig from "../../components/shared/SearchInputBig";
 import Wrapper from "../../components/shared/Wrapper";
 import styles from "../../styles/search.module.css";
 import { createArray } from "../../utils/helpers/createArray";
-import Link from "next/link";
-import Button from "../../components/shared/Button";
-import MainLayout from "../../components/layouts/MainLayout";
 
-export default function index() {
+export default function Index() {
+  const router = useRouter();
+  const [search, setSearch] = useState("");
+
   return (
     <MainLayout title="Search">
       <div className={styles.search}>
@@ -19,8 +21,13 @@ export default function index() {
             <h1 className={styles.search_title}>Discover +100 000 materials</h1>
             <SearchInputBig
               containerClassName={styles.search_input}
-              value={""}
-              onChange={() => {}}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onBtnCkick={() =>
+                router.push(`/search/result?text=${search}`, undefined, {
+                  shallow: true,
+                })
+              }
             />
 
             <div className={styles.search_popular}>
@@ -95,7 +102,9 @@ export default function index() {
                     </Link>
                   ))}
                 </div>
-                <Button text="View all subjects" outlined />
+                <Link passHref href="subjects">
+                  <Button text="View all subjects" outlined />
+                </Link>
               </div>
             </div>
           </div>

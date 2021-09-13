@@ -1,0 +1,22 @@
+.search_container {
+  height: 40px;
+  width: 433px;
+  border: var(--border-main);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 11px;
+  padding-right: 14px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.search_input {
+  border: none;
+  flex: 1;
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}

@@ -7,12 +7,23 @@ interface IProps {
   children?: any;
   link: string;
   blockClassName?: string;
+  containerClassName?: string;
+  footerElement?: any;
 }
 
-export default function LinkBlock({ children, link, blockClassName }: IProps) {
+export default function LinkBlock({
+  children,
+  link,
+  blockClassName,
+  containerClassName,
+  footerElement,
+}: IProps) {
   return (
     <Link passHref href={link}>
-      <div className={clsx(styles.block, blockClassName)}>{children}</div>
+      <div className={containerClassName}>
+        <div className={clsx(styles.block, blockClassName)}>{children}</div>
+        {footerElement}
+      </div>
     </Link>
   );
 }

@@ -13,18 +13,18 @@ export default function Companion() {
       </p>
       <CompanionBlock
         title="Discover"
-        btnArr={[{ btnText: "Discover study materials", link: "" }]}
+        btnArr={[{ btnText: "Discover study materials", link: "/search" }]}
       />
       <CompanionBlock
         reversed
         title="Create"
-        btnArr={[{ btnText: "Create flashcard", link: "" }]}
+        btnArr={[{ btnText: "Create flashcard", link: "/" }]}
       />
       <CompanionBlock
         title="Learn"
         btnArr={[
-          { btnText: "Create study pack", link: "" },
-          { btnText: "Learn", link: "" },
+          { btnText: "Create study pack", link: "/" },
+          { btnText: "Learn", link: "/" },
         ]}
       />
     </Wrapper>
