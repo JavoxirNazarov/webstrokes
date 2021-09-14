@@ -32,7 +32,7 @@ export default function Banner() {
             </Link>
 
             <Link passHref href="/auth/sign-in">
-              <Button text="Sign in" />
+              <Button text="Sign in" outlined />
             </Link>
           </div>
         </header>

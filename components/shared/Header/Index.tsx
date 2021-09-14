@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { ChangeEvent, useRef, useState } from "react";
 import ChevronDownIcon from "../../../assets/icons/ChevronDownIcon";
 import Button from "../Button";
@@ -16,6 +17,7 @@ export default function Header({
   withSearch,
   withDiscoverBtn,
 }: IHeaderOptions) {
+  const router = useRouter();
   const [searchText, setSearchText] = useState("");
   const [focused, setFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -50,7 +52,14 @@ export default function Header({
               onBlur={toggleFocus}
               placeholder="Search for notes, flashcards and many more"
             />
-            <Button text="Search" />
+            <Button
+              text="Search"
+              onClick={() =>
+                router.push(`/search/result?text=${searchText}`, undefined, {
+                  shallow: true,
+                })
+              }
+            />
           </div>
         )}
       </div>
@@ -72,7 +81,7 @@ export default function Header({
           <ChevronDownIcon />
         </div>
       </div>
-      <Suggestions inputFocused={focused} />
+      {/* <Suggestions inputFocused={focused} /> */}
     </div>
   );
 }

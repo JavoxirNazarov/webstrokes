@@ -20,8 +20,8 @@ export default function LinkBlock({
 }: IProps) {
   return (
     <Link passHref href={link}>
-      <div className={containerClassName}>
-        <div className={clsx(styles.block, blockClassName)}>{children}</div>
+      <div className={clsx(containerClassName, blockClassName)}>
+        <div className={styles.block}>{children}</div>
         {footerElement}
       </div>
     </Link>

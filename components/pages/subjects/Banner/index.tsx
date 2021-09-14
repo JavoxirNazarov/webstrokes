@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../shared/Wrapper";
+import Wrapper from "../../../shared/Wrapper";
 import styles from "./banner.module.css";
 
 export default function Banner({ title }: { title: string }) {

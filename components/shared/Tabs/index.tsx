@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import React from "react";
+import React, { CSSProperties } from "react";
 import styles from "./tabs.module.css";
 
 interface IProps {
-  items: { text: string; value: string }[];
+  items: { text: string; value: string; itemStyle?: CSSProperties }[];
   selectedValue: string;
   onChange: (val: string) => void;
   containerClassName?: string;
@@ -24,6 +24,7 @@ export default function Tabs({
             [styles.tab_selected]: item.value === selectedValue,
           })}
           key={i}
+          style={item.itemStyle}
         >
           {item.text}
         </div>

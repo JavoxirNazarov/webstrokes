@@ -7,9 +7,11 @@
   border-radius: var(--border-radius);
   border: 2px solid #b8b8b8;
   height: 40px;
+  width: 100%;
 }
 
 .tab {
+  flex: 1;
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: row;
@@ -21,7 +23,6 @@
   box-sizing: border-box;
   color: #000000;
   height: 42px;
-  min-width: 131px;
   padding: 0 16px;
 }
 

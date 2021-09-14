@@ -35,9 +35,17 @@ export default memo(function Button({
         btnClassName,
       )}
     >
-      {leftIcon && <span className={styles.btn__icon_left}>{leftIcon}</span>}
+      {leftIcon && (
+        <span className={clsx(styles.btn__icon_left, "flex_center")}>
+          {leftIcon}
+        </span>
+      )}
       {text}
-      {rightIcon && <span className={styles.btn__icon_right}>{rightIcon}</span>}
+      {rightIcon && (
+        <span className={clsx(styles.btn__icon_right, "flex_center")}>
+          {rightIcon}
+        </span>
+      )}
     </div>
   );
 });
