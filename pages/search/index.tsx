@@ -36,7 +36,7 @@ export default function Index() {
                 <div className={styles.search_popular_list}>
                   {createArray(6).map((el, i) => (
                     <LinkBlock
-                      blockClassName={styles.search_popular_item}
+                      containerClassName={styles.search_popular_item}
                       link="/"
                       key={i}
                     />
@@ -51,7 +51,7 @@ export default function Index() {
                 <div className={styles.search_popular_list}>
                   {createArray(6).map((el, i) => (
                     <LinkBlock
-                      blockClassName={styles.search_popular_item}
+                      containerClassName={styles.search_popular_item}
                       link="/"
                       key={i}
                     />

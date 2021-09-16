@@ -6,7 +6,6 @@ import Link from "next/link";
 interface IProps {
   children?: any;
   link: string;
-  blockClassName?: string;
   containerClassName?: string;
   footerElement?: any;
 }
@@ -14,13 +13,12 @@ interface IProps {
 export default function LinkBlock({
   children,
   link,
-  blockClassName,
   containerClassName,
   footerElement,
 }: IProps) {
   return (
     <Link passHref href={link}>
-      <div className={clsx(containerClassName, blockClassName)}>
+      <div className={clsx(containerClassName)}>
         <div className={styles.block}>{children}</div>
         {footerElement}
       </div>

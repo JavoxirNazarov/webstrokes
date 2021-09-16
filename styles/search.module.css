@@ -242,3 +242,15 @@
   line-height: 18px;
   color: #141414;
 }
+
+.results_content_recents {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 24px;
+  padding-left: 132px;
+}
+
+.results_content_recent {
+  width: 180px;
+}

@@ -9,6 +9,7 @@ import { Range } from "rc-slider";
 import ChevronDownIcon from "../../assets/icons/ChevronDownIcon";
 import { createArray } from "../../utils/helpers/createArray";
 import LinkBlock from "../../components/shared/LinkBlock";
+import Image from "next/image";
 
 export default function Result() {
   const router = useRouter();
@@ -122,8 +123,31 @@ export default function Result() {
             <Button outlined text="Sort by" rightIcon={<ChevronDownIcon />} />
           </div>
 
-          <div>
-            <LinkBlock></LinkBlock>
+          <div className={styles.results_content_recents}>
+            <LinkBlock
+              link=""
+              containerClassName={styles.results_content_recent}
+            >
+              <Image src="/note.png" width="100%" height="100%" alt="note" />
+            </LinkBlock>
+            <LinkBlock
+              link=""
+              containerClassName={styles.results_content_recent}
+            >
+              <Image src="/note.png" width="100%" height="100%" alt="note" />
+            </LinkBlock>
+            <LinkBlock
+              link=""
+              containerClassName={styles.results_content_recent}
+            >
+              <Image src="/note.png" width="100%" height="100%" alt="note" />
+            </LinkBlock>
+            <LinkBlock
+              link=""
+              containerClassName={styles.results_content_recent}
+            >
+              <Image src="/note.png" width="100%" height="100%" alt="note" />
+            </LinkBlock>
           </div>
         </div>
       </div>

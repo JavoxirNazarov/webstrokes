@@ -14,7 +14,7 @@ export default function Category({ title }: IProps) {
       <div className={styles.items}>
         {createArray(7).map((item, idx) => (
           <LinkBlock
-            blockClassName={styles.item}
+            containerClassName={styles.item}
             key={idx}
             link="/subjects"
             footerElement={
