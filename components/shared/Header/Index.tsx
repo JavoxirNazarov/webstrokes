@@ -5,34 +5,21 @@ import React, { ChangeEvent, useRef, useState } from "react";
 import ChevronDownIcon from "../../../assets/icons/ChevronDownIcon";
 import Button from "../Button";
 import Logo from "../Logo";
-import SearchInput from "../SearchInput";
-import Suggestions from "../Suggestions";
 import styles from "./header.module.css";
+import SearchIcon from "../../../assets/icons/SearchIcon";
+import CompassIcon from "../../../assets/icons/Compass";
 
 export interface IHeaderOptions {
-  withSearch: boolean;
-  withDiscoverBtn: boolean;
+  withSearch?: boolean;
 }
-export default function Header({
-  withSearch,
-  withDiscoverBtn,
-}: IHeaderOptions) {
+export default function Header({ withSearch = true }: IHeaderOptions) {
   const router = useRouter();
   const [searchText, setSearchText] = useState("");
-  const [focused, setFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleText = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
   };
-
-  const clearText = (e: any) => {
-    setFocused(false);
-    setSearchText("");
-    e.stopPropagation();
-  };
-
-  const toggleFocus = () => setFocused(!focused);
 
   return (
     <div className={styles.header}>
@@ -43,21 +30,26 @@ export default function Header({
             className={styles.header_search}
             onClick={() => inputRef.current?.focus()}
           >
-            <SearchInput
-              clearIconClick={clearText}
-              inputRef={inputRef}
+            <SearchIcon />
+            <input
+              ref={inputRef}
               value={searchText}
               onChange={handleText}
-              onFocus={toggleFocus}
-              onBlur={toggleFocus}
-              placeholder="Search for notes, flashcards and many more"
+              className={styles.header_search_input}
+              type="text"
+              placeholder="Search for notes, flashcards and more"
             />
             <Button
+              size="md"
               text="Search"
               onClick={() =>
-                router.push(`/search/result?text=${searchText}`, undefined, {
-                  shallow: true,
-                })
+                router.push(
+                  `/search/result?searching=${searchText}`,
+                  undefined,
+                  {
+                    shallow: true,
+                  },
+                )
               }
             />
           </div>
@@ -65,23 +57,27 @@ export default function Header({
       </div>
 
       <div className={styles.header_block2}>
-        {withDiscoverBtn && (
-          <Link passHref href="/search">
-            <Button text="Discover" outlined />
-          </Link>
-        )}
-        <div className={styles.header_user_row}>
-          <Image
-            src="/user-image.png"
-            alt="user image"
-            width={43}
-            height={43}
-            className={styles.header_icon}
-          />
+        <Link href="/search" passHref>
+          <a className={styles.header_discover}>
+            <CompassIcon />
+            <p>Discover</p>
+          </a>
+        </Link>
+        <div className={styles.user_row}>
+          <a href="" className={styles.user_link_block}>
+            <Image
+              src="/user-image.png"
+              alt="user image"
+              width={43}
+              height={43}
+              className={styles.user_icon}
+            />
+            <p className={styles.user_name}>Jane Doe</p>
+          </a>
+
           <ChevronDownIcon />
         </div>
       </div>
-      {/* <Suggestions inputFocused={focused} /> */}
     </div>
   );
 }

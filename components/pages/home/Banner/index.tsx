@@ -49,7 +49,7 @@ export default function Banner() {
             onChange={(e) => setSearch(e.target.value)}
             value={search}
             onBtnCkick={() =>
-              router.push(`/search/result?text=${search}`, undefined, {
+              router.push(`/search/result?searching=${search}`, undefined, {
                 shallow: true,
               })
             }

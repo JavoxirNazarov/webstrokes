@@ -42,3 +42,14 @@
   gap: 16px;
   margin-bottom: 50px;
 }
+
+.specific_list_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-block);
+  border-radius: var(--border-radius);
+  width: 129.75px;
+  height: 140px;
+  cursor: pointer;
+}

@@ -1,7 +1,6 @@
 import React from "react";
 import { createArray } from "../../../../utils/helpers/createArray";
 import Button from "../../../shared/Button";
-import LinkBlock from "../../../shared/LinkBlock";
 import Wrapper from "../../../shared/Wrapper";
 import styles from "./specific.module.css";
 import Link from "next/link";
@@ -17,7 +16,7 @@ export default function Specific() {
           <p className={styles.specific_list_title}>Universities</p>
           <div className={styles.specific_list_items}>
             {createArray(8).map((el, idx) => (
-              <LinkBlock key={idx} link="/" />
+              <div key={idx} className={styles.specific_list_item} />
             ))}
           </div>
           <Link href="/search/specified/?type=universities" passHref shallow>
@@ -29,7 +28,7 @@ export default function Specific() {
           <p className={styles.specific_list_title}>Schools</p>
           <div className={styles.specific_list_items}>
             {createArray(8).map((el, idx) => (
-              <LinkBlock key={idx} link="/" />
+              <div key={idx} className={styles.specific_list_item} />
             ))}
           </div>
           <Link href="/search/specified/?type=schools" passHref shallow>
@@ -44,7 +43,7 @@ export default function Specific() {
         <div className={styles.specific_list}>
           <div className={styles.specific_list_items}>
             {createArray(8).map((el, idx) => (
-              <LinkBlock key={idx} link="/" />
+              <div key={idx} className={styles.specific_list_item} />
             ))}
           </div>
           <Link passHref href="/subjects">

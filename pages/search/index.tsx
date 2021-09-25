@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import MainLayout from "../../components/layouts/MainLayout";
 import Button from "../../components/shared/Button";
-import LinkBlock from "../../components/shared/LinkBlock";
+import Header from "../../components/shared/Header/Index";
 import SearchInputBig from "../../components/shared/SearchInputBig";
 import Wrapper from "../../components/shared/Wrapper";
 import styles from "../../styles/search.module.css";
@@ -15,6 +15,7 @@ export default function Index() {
 
   return (
     <MainLayout title="Search">
+      <Header withSearch={false} />
       <div className={styles.search}>
         <Wrapper>
           <div className={styles.search_container}>
@@ -24,7 +25,7 @@ export default function Index() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               onBtnCkick={() =>
-                router.push(`/search/result?text=${search}`, undefined, {
+                router.push(`/search/result?searching=${search}`, undefined, {
                   shallow: true,
                 })
               }
@@ -35,11 +36,7 @@ export default function Index() {
                 <p className={styles.search_block_title}>Most popular notes</p>
                 <div className={styles.search_popular_list}>
                   {createArray(6).map((el, i) => (
-                    <LinkBlock
-                      containerClassName={styles.search_popular_item}
-                      link="/"
-                      key={i}
-                    />
+                    <div key={i} className={styles.search_popular_item} />
                   ))}
                 </div>
               </div>
@@ -50,11 +47,7 @@ export default function Index() {
                 </p>
                 <div className={styles.search_popular_list}>
                   {createArray(6).map((el, i) => (
-                    <LinkBlock
-                      containerClassName={styles.search_popular_item}
-                      link="/"
-                      key={i}
-                    />
+                    <div key={i} className={styles.search_popular_item} />
                   ))}
                 </div>
               </div>
@@ -75,7 +68,7 @@ export default function Index() {
                   passHref
                   shallow
                 >
-                  <Button text="Find you university" outlined />
+                  <Button text="Find you university" />
                 </Link>
               </div>
 
@@ -89,7 +82,7 @@ export default function Index() {
                   ))}
                 </div>
                 <Link href="/search/specified/?type=schools" passHref shallow>
-                  <Button text="Find you school" outlined />
+                  <Button text="Find you school" />
                 </Link>
               </div>
 
@@ -103,7 +96,7 @@ export default function Index() {
                   ))}
                 </div>
                 <Link passHref href="subjects">
-                  <Button text="View all subjects" outlined />
+                  <Button text="View all subjects" />
                 </Link>
               </div>
             </div>

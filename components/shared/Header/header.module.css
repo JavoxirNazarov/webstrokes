@@ -1,53 +1,117 @@
 .header {
   width: 100%;
-  height: 72px;
+  height: 64px;
   background: #ffffff;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
+  padding-left: 35px;
+  padding-right: 24px;
   position: relative;
-  z-index: 10;
 }
 
 .header_block1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 298px;
+  gap: 220px;
 }
+
+.header_search {
+  height: 40px;
+  width: 688px;
+  padding-right: 4px;
+  padding-left: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+
+.header_search_input {
+  font-size: 14px;
+  line-height: 140%;
+  color: #737473;
+  border: none;
+  flex: 1;
+  font-family: var(--font-main);
+  line-height: 20px;
+  color: #000000;
+  background: transparent;
+}
+
 .header_block2 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 189px;
+  justify-content: flex-end;
+  gap: 37px;
 }
 
-.header_search {
+.header_discover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 4px;
+  gap: 10px;
+  text-decoration: none;
 }
 
-.header_user_row {
+.header_discover p {
+  font-family: var(--font-main);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: #e85d04;
+}
+
+.user_row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
-.header_icon {
+.user_link_block {
+  transition: 0.4s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 0px 4px 4px;
+  width: 136px;
+  height: 48px;
+  text-decoration: none;
+  justify-content: space-between;
+  border-radius: 34px;
+  color: #010400;
+}
+
+.user_link_block:hover {
+  background: #fafafa;
+  padding: 4px 16px 4px 4px;
+}
+
+.user_link_block:active {
+  background: #e85d04;
+  color: #fdfdfd;
+}
+
+.user_icon {
   border-radius: 50px;
+  border: 1px solid #e85d04 !important;
 }
 
-@media screen and (max-width: 1439px) {
-  .header_block1 {
-    gap: 16vw;
-  }
-  .header_block2 {
-    gap: 14vw;
-  }
+.user_name {
+  font-family: var(--font-main);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
 }

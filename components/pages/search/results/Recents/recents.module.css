@@ -1,0 +1,39 @@
+.recents {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.recent {
+  width: 180px;
+}
+
+.recent_item {
+  width: 180px;
+  height: 180px;
+  border: 2px solid #dee1e5;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.recent_text {
+  font-family: var(--font-main);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: #000000;
+  margin: 8px 0;
+}
+.recent_tag {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 176px;
+  white-space: nowrap;
+}
+.recent_tag + .recent_tag {
+  margin-top: 4px;
+}

@@ -2,19 +2,10 @@ import * as React from "react";
 
 function SearchIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      {...props}
-      width={24}
-      height={24}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width={18} height={18} fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35"
-        stroke="#000"
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M7.334 2.334a5 5 0 100 10 5 5 0 000-10zm-6.667 5A6.667 6.667 0 1112.6 11.422l4.49 4.49a.833.833 0 01-1.179 1.178l-4.49-4.49A6.667 6.667 0 01.667 7.333z"
+        fill={props.fill || "#737473"}
       />
     </svg>
   );

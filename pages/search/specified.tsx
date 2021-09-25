@@ -1,56 +1,32 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import MainLayout from "../../components/layouts/MainLayout";
-import LinkBlock from "../../components/shared/LinkBlock";
-import SearchInputBig from "../../components/shared/SearchInputBig";
 import Tabs from "../../components/shared/Tabs";
 import Wrapper from "../../components/shared/Wrapper";
 import styles from "../../styles/search.module.css";
 import { createArray } from "../../utils/helpers/createArray";
-import Image from "next/image";
+import Header from "../../components/shared/Header/Index";
+import SearchBar from "../../components/pages/search/specific/SearchBar";
 
 export default function Specified() {
   const router = useRouter();
   const [searchText, setSearchText] = useState("");
 
+  const routeType = router.query.type as string;
+
   const specifiedTypes = [
-    { text: "Schools", value: "schools" },
     { text: "Universities", value: "universities" },
+    { text: "Schools", value: "schools" },
   ];
 
   useEffect(() => {
     setSearchText("");
-  }, [router.query.type]);
-
-  const UniversitiesBlock = () => (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Image
-        alt="router.query.type"
-        src={
-          router.query.type == "universities"
-            ? "/university.png"
-            : "/school.png"
-        }
-        width="100%"
-        height="100%"
-      />
-    </div>
-  );
+  }, [routeType]);
 
   return (
-    <MainLayout
-      withDiscoverBtn
-      withSearch
-      title={`Search for university ${router.query.type}`}
-    >
+    <MainLayout title={`Search for university ${routeType}`}>
+      <Header withSearch />
+
       <div className={styles.search}>
         <Wrapper>
           <div className={styles.search_container}>
@@ -63,42 +39,19 @@ export default function Specified() {
                 })
               }
               items={specifiedTypes}
-              selectedValue={router.query.type as string}
+              selectedValue={routeType}
             />
 
-            <SearchInputBig
-              placeholder={`Search for ${router.query.type}`}
-              containerClassName={styles.search_input}
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-              onBtnCkick={() =>
-                router.push(`/search/result?text=${searchText}`, undefined, {
-                  shallow: true,
-                })
-              }
-            />
+            <SearchBar searchType={routeType} />
 
-            <div className={styles.search_popular}>
-              <div className={styles.search_popular_block}>
-                <p className={styles.search_block_title}>
-                  Most popular {router.query.type}
-                </p>
-                <div className={styles.search_popular_list}>
-                  {createArray(10).map((el, i) => (
-                    <LinkBlock
-                      containerClassName={styles.search_popular_item}
-                      link="/"
-                      key={i}
-                      footerElement={
-                        <p className={styles.search_popular_item_name}>
-                          London School of Economics
-                        </p>
-                      }
-                    >
-                      <UniversitiesBlock />
-                    </LinkBlock>
-                  ))}
+            <div className={styles.specific_popular}>
+              <div className={styles.specific_popular_item}>
+                <div>
+                  <img src="/oxford-university.png" alt="oxford university" />
                 </div>
+                <p className={styles.specific_popular_item_name}>
+                  King’s College London
+                </p>
               </div>
             </div>
           </div>

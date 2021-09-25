@@ -20,9 +20,16 @@
   flex-wrap: wrap;
 }
 
-.item {
+.item_ {
+  width: 144px;
+  cursor: pointer;
+}
+
+.item_block {
   width: 144px;
   height: 144px;
+  border: var(--border-block);
+  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
